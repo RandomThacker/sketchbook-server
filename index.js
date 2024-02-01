@@ -10,6 +10,14 @@ const io = new Server(httpServer, { cors: "http://localhost:3000/"});
 
 io.on("connection", (socket) => {
   console.log("server connected")
+
+  socket.on('beginPath', (arg) => {
+    socket.broadcast.emit('beginPath', arg)
+  })
+
+  socket.on('drawLine', (arg) => {
+    socket.broadcast.emit('drawLine', arg)
+  })
 });
 
 httpServer.listen(5000);
