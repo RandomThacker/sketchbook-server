@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const app = express();
 const isDev = app.settings.env === 'developement'
-const URL = isDev ? "http://localhost:3000/" : "https://sketchbook-inky.vercel.app/"
+const URL = isDev ? "http://localhost:3000/" : "https://sketchbook-random.vercel.app/"
 app.use(cors({origin: URL}))
 const httpServer = createServer(app);
 const io = new Server(httpServer, { cors: URL});
